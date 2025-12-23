@@ -71,8 +71,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Note.wsgi.application'
 
 
+
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 # DATABASES = {
 #     'default': {
@@ -82,17 +83,18 @@ WSGI_APPLICATION = 'Note.wsgi.application'
 # }
 
 
+SECRET_KEY = config('SECRET_KEY')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database_1',
-        'USER': 'postgres',
-        'PASSWORD': 'sujan@789',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
-
 
 
 # Password validation
